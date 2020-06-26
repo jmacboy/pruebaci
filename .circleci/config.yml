@@ -8,5 +8,5 @@ jobs:
       - run:
           command: |
             python -m venv venv
-            venv/activate.sh
+            source venv/bin/activate
             pip install requirements.txt
