@@ -10,4 +10,7 @@ jobs:
             python -m venv venv
             source venv/bin/activate
             pip install -r requirements.txt
-      - run: python manage.py test
+      - run:
+          command: |
+            source venv/bin/activate
+            python manage.py test
