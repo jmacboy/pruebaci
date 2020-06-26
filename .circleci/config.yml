@@ -1,1 +1,11 @@
  version: 2.1
+   build:
+    docker:
+      - image: circleci/python:3.6.8  # primary container for the build job
+    steps:
+      - checkout
+      - run:
+          command: |
+            python -m venv venv
+            venv/activate.sh
+            pip install requirements.txt
