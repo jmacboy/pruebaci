@@ -14,3 +14,22 @@ jobs:
           command: |
             source venv/bin/activate
             python manage.py test
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy por ssh
+          command: |
+            ssh jmacboy@ssh.pythonanywhere.com "ls"
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+        requires:
+          - build # only deploy once build job has completed
+          filters:
+            branches:
+              only: master # only deploy on the master branch
