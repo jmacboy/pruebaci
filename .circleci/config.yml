@@ -23,10 +23,13 @@ jobs:
           command: |
             ssh jmacboy@ssh.pythonanywhere.com "ls"
 workflows:
-  version: 2
+  version: 2.1
   build-and-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: master # only deploy on the master branch
       - deploy:
         requires:
           - build # only deploy once build job has completed
