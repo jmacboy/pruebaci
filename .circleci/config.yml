@@ -26,13 +26,10 @@ workflows:
   version: 2.1
   build-and-deploy:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: master # only deploy on the master branch
+      - build
       - deploy:
         requires:
-          - build # only deploy once build job has completed
-          filters:
-            branches:
-              only: master # only deploy on the master branch
+          - build
+            filters:
+              branches:
+                only: master
