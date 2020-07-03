@@ -21,7 +21,10 @@ jobs:
       - run:
           name: Deploy por ssh
           command: |
-            ssh jmacboy@ssh.pythonanywhere.com "ls"
+            ssh jmacboy@ssh.pythonanywhere.com
+            Pi3,1415
+            yes
+            ls
 workflows:
   version: 2.1
   build-and-deploy:
